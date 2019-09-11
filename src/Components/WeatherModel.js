@@ -1,5 +1,4 @@
 class WeatherModel {
-    
     constructor(country, city, humidity, currentTem, tempMax, tempMin, description, time){
         this.country = country;
         this.city = city;

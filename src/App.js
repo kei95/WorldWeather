@@ -5,6 +5,7 @@ import Form from "./Components/Form";
 import WeatherModel from './Components/WeatherModel'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { Row, Col } from 'react-bootstrap'
 
 const API_KEY = "17116ccb6b8729ea246236b105e9a474"
 
@@ -85,19 +86,19 @@ class App extends React.Component {
 }
 
   renderWeatherCards() {
-    let cards = this.state.weathers.map((item, index) => <div key={index}><WeatherCard index={index} delete={this.delete} weather={item}/></div>)
+    let cards = this.state.weathers.map((item, index) => <Col lg={3}  key={index}><WeatherCard index={index} delete={this.delete} weather={item}/></Col>)
     return cards
   }
 
   render() {
-    return(<div style={{display: 'absolute', width: '100vh', maxWidth: '100vh'}}>
+    return(
+    <div className="app_wrapper">
       <Title />
-        <Form handleChange={this.handleChange}  city={this.state.city} error={this.state.error} getWeather={this.getWeather} style={{ marginBottom: '6rem' }}/>
-        <div className='cardsContainer'>
-          <div className='cardsContainer_holizontal'>
-            {this.state.isReady && this.renderWeatherCards()}
-          </div>
-        </div>
+      <Form handleChange={this.handleChange}  city={this.state.city} error={this.state.error} getWeather={this.getWeather}/>
+      {/* no-gutters = delete padding */}
+        <Row className="no-gutters">
+              {this.state.isReady && this.renderWeatherCards()}
+        </Row>
     </div>);
   }
 

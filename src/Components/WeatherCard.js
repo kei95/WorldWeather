@@ -41,7 +41,7 @@ class WeatherCard extends React.Component {
     render() {
         return (
             <div>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{marginTop: '3vh'}}>
                         <Card.Img className="CardImage" variant="top" src={this.picPicture()} />
                         <Card.Body>
                             <Card.Title>{this.props.weather.city}, {this.props.weather.country}</Card.Title>
