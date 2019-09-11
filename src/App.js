@@ -13,7 +13,8 @@ class App extends React.Component {
   state = {
     error: undefined,
     isReady: false,
-    weathers: []
+    weathers: [],
+    city: ""
   }
 
   weather = null
@@ -34,41 +35,57 @@ class App extends React.Component {
   } 
 
   getWeather = async (e) => {
-    e.preventDefault();
-    const city = e.target.elements.city.value;
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},Japan&appid=${API_KEY}&units=metric`);
-    const data = await api_call.json();
-    console.log(data)
-    if(city){
-    let newWeather = new WeatherModel(
-        data.sys.country,
-        data.name, 
-        data.main.humidity,
-        data.main.temp,
-        data.main.temp_max,
-        data.main.temp_min, 
-        data.weather[0].main,
-        data.timezone)
-
-        if (!this.state.weathers.some(e => e.city === newWeather.city)){
-          let newWeathersArr = [...this.state.weathers, newWeather]
-          this.setState({
-            error: "",
-            isReady: true,
-            weathers: newWeathersArr
-          })
-        } else {
-          this.setState({
-            error: "You have same city already"
-          })
-        }
-    } else {
+    try {
+      e.preventDefault();
+      const city = e.target.elements.city.value;
+      const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},Japan&appid=${API_KEY}&units=metric`);
+      const data = await api_call.json();
+      console.log(data)
       this.setState({
-        error: "Please enter the value"
+        city: ""
       })
-    }
-    console.log(this.state.weathers)
+      if(city){
+      let newWeather = new WeatherModel(
+          data.sys.country,
+          data.name, 
+          data.main.humidity,
+          data.main.temp,
+          data.main.temp_max,
+          data.main.temp_min, 
+          data.weather[0].main,
+          data.timezone)
+  
+          if (!this.state.weathers.some(e => e.city === newWeather.city)){
+            let newWeathersArr = [...this.state.weathers, newWeather]
+            this.setState({
+              error: "",
+              isReady: true,
+              weathers: newWeathersArr
+            })
+          } else {
+            this.setState({
+              error: "You have same city already"
+            })
+          }
+      } else {
+        this.setState({
+          error: "Please enter the value"
+        })
+      }
+      console.log(this.state.weathers)
+    } catch (error) {
+      this.setState({
+        error: "This city does not exist. make sure there's no typo"
+      })
+    } 
+
   }
+
+  handleChange = (e) => {
+    this.setState({
+        city: e
+    })
+}
 
   renderWeatherCards() {
     let cards = this.state.weathers.map((item, index) => <div key={index}><WeatherCard index={index} delete={this.delete} weather={item}/></div>)
@@ -78,7 +95,7 @@ class App extends React.Component {
   render() {
     return(<div style={{width: '100%', maxWidth: '100%'}}>
       <Title />
-        <Form error={this.state.error} getWeather={this.getWeather} style={{ marginBottom: '6rem' }}/>
+        <Form handleChange={this.handleChange}  city={this.state.city} error={this.state.error} getWeather={this.getWeather} style={{ marginBottom: '6rem' }}/>
         <div className='cardsContainer'>
           <div className='cardsContainer_holizontal'>
             {this.state.isReady && this.renderWeatherCards()}
