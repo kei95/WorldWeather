@@ -29,6 +29,8 @@ class WeatherCard extends React.Component {
                 return fog
             case "Thunderstorm":
                 return thunderstorm
+            case "Haze":
+                return fog
             default:
                 return sunny
         }
@@ -46,16 +48,16 @@ class WeatherCard extends React.Component {
                                 {this.props.weather.description}<br />
                                 <br />
                                 CurrentTemperture:<br />
-                                {this.props.weather.currentTem}<br />
+                                {this.props.weather.currentTem} ℃<br />
                                 <br />
                                 MaxTemperture:<br />
-                                {this.props.weather.tempMax}<br />
+                                {this.props.weather.tempMax} ℃<br />
                                 <br />
                                 MinTemperture:<br />
-                                {this.props.weather.tempMin}<br />
+                                {this.props.weather.tempMin} ℃<br />
                                 <br />
                                 Humidity:<br />
-                                {this.props.weather.humidity}
+                                {this.props.weather.humidity} %
                             </Card.Text>
                             <Button onClick={() => this.props.delete(this.props.weather.city)}>Delete</Button>
                         </Card.Body>

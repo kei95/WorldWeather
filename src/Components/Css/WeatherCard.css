@@ -3,3 +3,7 @@
     height: 25vh;
     object-fit: cover;
     }
+
+.cardsContainer {
+    margin-top: 2rem;
+}

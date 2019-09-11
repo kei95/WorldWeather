@@ -93,7 +93,7 @@ class App extends React.Component {
   }
 
   render() {
-    return(<div style={{width: '100%', maxWidth: '100%'}}>
+    return(<div style={{display: 'absolute', width: '100vh', maxWidth: '100vh'}}>
       <Title />
         <Form handleChange={this.handleChange}  city={this.state.city} error={this.state.error} getWeather={this.getWeather} style={{ marginBottom: '6rem' }}/>
         <div className='cardsContainer'>
