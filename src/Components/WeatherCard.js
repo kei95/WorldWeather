@@ -31,6 +31,8 @@ class WeatherCard extends React.Component {
                 return thunderstorm
             case "Haze":
                 return fog
+            case "Drizzle":
+                return fog
             default:
                 return sunny
         }
