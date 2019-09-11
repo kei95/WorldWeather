@@ -21,7 +21,6 @@ class App extends React.Component {
 
   delete = (cityName) => {
       let newWeatherArr = this.state.weathers.filter(item=> item.city !== cityName)
-      console.log(newWeatherArr)
       if (this.state.weathers.length !== 0) {
       this.setState({
         weathers: newWeatherArr,
@@ -40,7 +39,6 @@ class App extends React.Component {
       const city = e.target.elements.city.value;
       const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},Japan&appid=${API_KEY}&units=metric`);
       const data = await api_call.json();
-      console.log(data)
       this.setState({
         city: ""
       })
@@ -72,7 +70,6 @@ class App extends React.Component {
           error: "Please enter the value"
         })
       }
-      console.log(this.state.weathers)
     } catch (error) {
       this.setState({
         error: "This city does not exist. make sure there's no typo"
