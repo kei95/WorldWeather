@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fc9b5d06.chunk.css",
+    "main.js": "/static/js/main.64724d29.chunk.js",
+    "main.js.map": "/static/js/main.64724d29.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a968dc45.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a968dc45.js.map",
+    "static/css/2.266e55a5.chunk.css": "/static/css/2.266e55a5.chunk.css",
+    "static/js/2.d83942a7.chunk.js": "/static/js/2.d83942a7.chunk.js",
+    "static/js/2.d83942a7.chunk.js.map": "/static/js/2.d83942a7.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.2da507cfbc2df60c317dcbce2dfbe539.js": "/precache-manifest.2da507cfbc2df60c317dcbce2dfbe539.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.fc9b5d06.chunk.css.map": "/static/css/main.fc9b5d06.chunk.css.map",
+    "static/media/Thunderstorm.jpg": "/static/media/Thunderstorm.b52b807a.jpg",
+    "static/media/cloud.jpg": "/static/media/cloud.6607a363.jpg",
+    "static/media/fog.jpg": "/static/media/fog.48176158.jpg",
+    "static/media/rain.jpg": "/static/media/rain.b6a831fd.jpg",
+    "static/media/snow.jpg": "/static/media/snow.97e70aac.jpg",
+    "static/media/sunny.jpg": "/static/media/sunny.34ebe320.jpg"
+  }
+}
